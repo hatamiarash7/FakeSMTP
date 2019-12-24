@@ -37,7 +37,7 @@ The output resembles the following:
 
 ---
 
-Type hello me, and then press ENTER.
+Type ```hello me```, and then press ENTER.
 
 The output resembles the following:
 
@@ -45,7 +45,7 @@ The output resembles the following:
 
 ---
 
-Type mail from:email@domain.com, and then press ENTER. 
+Type ```mail from:email@domain.com```, and then press ENTER. 
 
 The output resembles the following:
 
@@ -53,7 +53,7 @@ The output resembles the following:
 
 ---
 
-Type rcpt to:youremail@yourdomain.com, and then press ENTER.
+Type ```rcpt to:youremail@yourdomain.com```, and then press ENTER.
 
 The output resembles the following:
 
@@ -61,7 +61,7 @@ The output resembles the following:
 
 ---
 
-Type Data, and then press ENTER.
+Type ```Data```, and then press ENTER.
 
 The output resembles the following:
 
@@ -69,8 +69,8 @@ The output resembles the following:
 
 ---
 
-Type Subject:This is a test, and then press ENTER two times.
-Type Testing, and then press ENTER.
+Type ```Subject:This is a test```, and then press ENTER two times.
+Type ```Testing```, and then press ENTER.
 Press ENTER, type a period (.), and then press ENTER.
 
 The output resembles the following:
@@ -79,7 +79,7 @@ The output resembles the following:
 
 ---
 
-Type quit, and then press ENTER.
+Type ```quit```, and then press ENTER.
 
 The output resembles the following:
 
