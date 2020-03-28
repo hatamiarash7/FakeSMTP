@@ -1,4 +1,6 @@
 # Fake SMTP server
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/hatamiarash7/fake-smtp) ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/hatamiarash7/fake-smtp)
+
 Is a wrapper around the FakeSMTP java app running on alpine linux with openjdk 8's JRE ( based on https://github.com/Nilhcem/FakeSMTP )
 
 ## Start with docker:
