@@ -25,7 +25,7 @@ services:
     ports:
       - 1025:25
     volumes:
-      - ./email:/var/mail
+      - /tmp/fakemail:/var/mail
 ```
 
 ## Simple test
