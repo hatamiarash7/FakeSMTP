@@ -57,7 +57,7 @@ jobs:
       - id: github-image
         uses: ASzc/change-string-case-action@v2
         with:
-          string: ${{ env.G_REGISTRY }}/${{ github.repository }}/fakesmtp:latest
+          string: ${{ env.G_REGISTRY }}/${{ github.repository }}:latest
 
       - name: Build image
         run: |
