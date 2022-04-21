@@ -1,11 +1,13 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:11-jre-slim
 
-RUN wget -q http://nilhcem.github.io/FakeSMTP/downloads/fakeSMTP-latest.zip && unzip fakeSMTP-latest.zip -d /opt && rm fakeSMTP-latest.zip
+RUN mkdir -p /output
 
-RUN mv /opt/fakeSMTP*.jar /opt/fakeSMTP.jar
+ADD http://nilhcem.github.io/FakeSMTP/downloads/fakeSMTP-latest.zip /fakeSMTP-latest.zip
+
+RUN unzip /fakeSMTP-latest.zip
+
+VOLUME /output
 
 EXPOSE 25
 
-VOLUME ["/var/mail"]
-
-CMD java -jar /opt/fakeSMTP.jar --start-server --background --output-dir /var/mail --port 25
+ENTRYPOINT ["java","-jar","/fakeSMTP-2.0.jar","--background", "--output-dir", "/output", "--port", "25", "--start-server"]
