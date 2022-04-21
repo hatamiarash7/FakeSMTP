@@ -52,11 +52,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Log into registry ${{ env.REGISTRY }}
+      - name: Log into registry ${{ env.G_REGISTRY }}
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v1.14.1
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ${{ env.G_REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
