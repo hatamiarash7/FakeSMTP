@@ -59,9 +59,13 @@ jobs:
         with:
           string: ${{ env.G_REGISTRY }}/${{ github.repository }}:latest
 
+      - name: Get Current Date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
       - name: Build image
         run: |
-          docker build -t ${{ steps.github-image.outputs.lowercase }} .
+          docker build -t ${{ steps.github-image.outputs.lowercase }} --build-arg DATE_CREATED=${{ steps.date.outputs.date }} .
 
       - name: Log into registry ${{ env.G_REGISTRY }}
         if: github.event_name != 'pull_request'
@@ -94,9 +98,13 @@ jobs:
         with:
           string: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
+      - name: Get Current Date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
       - name: Build image
         run: |
-          docker build -t ${{ steps.dockerhub-image.outputs.lowercase }} .
+          docker build -t ${{ steps.dockerhub-image.outputs.lowercase }} --build-arg DATE_CREATED=${{ steps.date.outputs.date }} .
 
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
