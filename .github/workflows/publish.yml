@@ -104,7 +104,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push to ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
