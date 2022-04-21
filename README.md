@@ -2,14 +2,14 @@
 
 [![Publish](https://github.com/hatamiarash7/FakeSMTP/actions/workflows/publish.yml/badge.svg)](https://github.com/hatamiarash7/FakeSMTP/actions/workflows/publish.yml) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/hatamiarash7/fake-smtp/latest)
 
-Is a wrapper around the FakeSMTP java app running on alpine linux with openjdk 8's JRE ( based on <https://github.com/Nilhcem/FakeSMTP> )
+Is a wrapper around the FakeSMTP java app running on alpine linux with openjdk 11's JRE ( based on <https://github.com/Nilhcem/FakeSMTP> )
 
 ## Start with docker
 
 This will start an instance that puts the emails in `/tmp/fakemail` and listens on port `1025`
 
 ```bash
-docker run -d --name fakesmtp -p 1025:25 -v /tmp/fakemail:/var/mail hatamiarash7/fake-smtp:master
+docker run -d --name fakesmtp -p 1025:25 -v /tmp/fakemail:/output hatamiarash7/fake-smtp:master
 ```
 
 ## Docker Compose
@@ -17,15 +17,15 @@ docker run -d --name fakesmtp -p 1025:25 -v /tmp/fakemail:/var/mail hatamiarash7
 This will start an instance that listens on port `1025` and saves the emails in the `email` folder in the project
 
 ```yaml
-version: "3"
+version: "3.9"
 
 services:
   fakesmtp:
-    image: hatamiarash7/fake-smtp:master
+    image: hatamiarash7/fake-smtp:latest
     ports:
       - 1025:25
     volumes:
-      - /tmp/fakemail:/var/mail
+      - /tmp/fakemail:/output
 ```
 
 ## Simple test
