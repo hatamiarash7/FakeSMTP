@@ -1,6 +1,6 @@
 # Fake SMTP server
 
-[![Publish](https://github.com/hatamiarash7/FakeSMTP/actions/workflows/publish.yml/badge.svg)](https://github.com/hatamiarash7/FakeSMTP/actions/workflows/publish.yml) ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/hatamiarash7/fake-smtp)
+[![Publish](https://github.com/hatamiarash7/FakeSMTP/actions/workflows/publish.yml/badge.svg)](https://github.com/hatamiarash7/FakeSMTP/actions/workflows/publish.yml) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/hatamiarash7/fake-smtp/latest)
 
 Is a wrapper around the FakeSMTP java app running on alpine linux with openjdk 8's JRE ( based on <https://github.com/Nilhcem/FakeSMTP> )
 
