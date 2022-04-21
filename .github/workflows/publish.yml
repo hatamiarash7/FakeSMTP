@@ -86,6 +86,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          ref: master
+
+      - id: dockerhub-image
+        uses: ASzc/change-string-case-action@v2
+        with:
+          string: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+      - name: Build image
+        run: |
+          docker build -t ${{ steps.dockerhub-image.outputs.lowercase }} .
 
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
@@ -93,11 +104,9 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2.10.0
-        with:
-          context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: "latest"
+      - name: Push to ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        run: |
+          docker push ${{ steps.dockerhub-image.outputs.lowercase }}
