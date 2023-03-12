@@ -55,7 +55,7 @@ jobs:
           ref: master
 
       - id: github-image
-        uses: ASzc/change-string-case-action@v2
+        uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ env.G_REGISTRY }}/${{ github.repository }}:latest
 
@@ -94,7 +94,7 @@ jobs:
           ref: master
 
       - id: dockerhub-image
-        uses: ASzc/change-string-case-action@v2
+        uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
