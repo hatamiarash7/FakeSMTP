@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim
+FROM openjdk:11.0.16-jre-slim
 
 LABEL org.opencontainers.image.created=$DATE_CREATED
 LABEL org.opencontainers.image.title="FakeSMTP"
